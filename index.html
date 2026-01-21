@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -202,96 +203,95 @@
       </section>
 
       <!-- RSVP -->
-      <aside class="card">
-        <div class="cardHead">
-          <h2>RSVP</h2>
-          <div class="pill">Google Sheet</div>
+ <!-- RSVP -->
+<aside class="card">
+  <div class="cardHead">
+    <h2>RSVP</h2>
+    <div class="pill">Google Sheet</div>
+  </div>
+
+  <div class="content">
+    <!-- Hidden iframe prevents page redirect -->
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+    <form id="rsvpForm"
+          action="https://script.google.com/macros/s/AKfycbyy-0nS81tC9UtM0anblnfe4dRU03nb3kMz-vhu7z4yZRmVSU2a_1Y85XpzMLVT8MtdaQ/exec"
+          method="POST"
+          target="hidden_iframe">
+
+      <div>
+        <label for="guestName">Guest name</label>
+        <input id="guestName" name="guestName" required placeholder="Full name" />
+      </div>
+
+      <div class="row">
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required placeholder="name@example.com" />
         </div>
-        <div class="content">
-          <form id="rsvpForm">
-            <div>
-              <label for="guestName">Guest name</label>
-              <input id="guestName" name="guestName" required placeholder="Full name" />
-            </div>
-
-            <div class="row">
-              <div>
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" required placeholder="name@example.com" />
-              </div>
-              <div>
-                <label for="phone">Phone number</label>
-                <input id="phone" name="phone" type="tel" required placeholder="+44…" />
-              </div>
-            </div>
-
-            <div>
-              <label for="attendingCount">Number of family members attending</label>
-              <select id="attendingCount" name="attendingCount" required>
-                <option value="" selected disabled>Select number</option>
-                <option>1</option><option>2</option><option>3</option><option>4</option>
-                <option>5</option><option>6</option><option>7</option><option>8</option>
-                <option>9</option><option>10</option>
-              </select>
-            </div>
-
-            <button class="btn" id="submitBtn" type="submit">Submit RSVP</button>
-            <div id="okMsg" class="msg">✅ Thank you! Your RSVP has been saved.</div>
-            <div id="errMsg" class="msg">❌ Sorry — something went wrong. Please try again.</div>
-
-            <div class="hint">Your details are only used for the wedding RSVP.</div>
-          </form>
+        <div>
+          <label for="phone">Phone number</label>
+          <input id="phone" name="phone" type="tel" required placeholder="+44…" />
         </div>
-      </aside>
+      </div>
+
+      <div>
+        <label for="attendingCount">Number of family members attending</label>
+        <select id="attendingCount" name="attendingCount" required>
+          <option value="" selected disabled>Select number</option>
+          <option>1</option><option>2</option><option>3</option><option>4</option>
+          <option>5</option><option>6</option><option>7</option><option>8</option>
+          <option>9</option><option>10</option>
+        </select>
+      </div>
+
+      <!-- Honeypot anti-spam (hidden) -->
+      <input type="text" name="website" id="website" autocomplete="off" style="display:none">
+
+      <button class="btn" id="submitBtn" type="submit">Submit RSVP</button>
+
+      <div id="okMsg" class="msg">✅ Thank you! Your RSVP has been saved.</div>
+      <div id="errMsg" class="msg">❌ Sorry — something went wrong. Please try again.</div>
+
+      <div class="hint">Your details are only used for the wedding RSVP.</div>
+    </form>
+  </div>
+</aside>
+
     </div>
 
     <footer>© Yuhananthan &amp; Pugalini</footer>
   </div>
 
-  <script>
-    // ✅ Paste your Google Apps Script Web App URL here:
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyy-0nS81tC9UtM0anblnfe4dRU03nb3kMz-vhu7z4yZRmVSU2a_1Y85XpzMLVT8MtdaQ/exec";
+ <script>
+  const form = document.getElementById("rsvpForm");
+  const btn = document.getElementById("submitBtn");
+  const ok = document.getElementById("okMsg");
+  const err = document.getElementById("errMsg");
+  const hp = document.getElementById("website");
 
-    const form = document.getElementById("rsvpForm");
-    const btn = document.getElementById("submitBtn");
-    const ok = document.getElementById("okMsg");
-    const err = document.getElementById("errMsg");
+  form.addEventListener("submit", () => {
+    ok.style.display = "none";
+    err.style.display = "none";
+    btn.disabled = true;
 
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      ok.style.display = "none";
-      err.style.display = "none";
-      btn.disabled = true;
+    // If honeypot filled (bot), silently show success
+    if (hp && hp.value.trim() !== "") {
+      form.reset();
+      ok.style.display = "block";
+      btn.disabled = false;
+      return;
+    }
 
-      const payload = {
-        guestName: document.getElementById("guestName").value.trim(),
-        email: document.getElementById("email").value.trim(),
-        phone: document.getElementById("phone").value.trim(),
-        attendingCount: document.getElementById("attendingCount").value
-      };
-
-      try {
-        const res = await fetch(GOOGLE_SCRIPT_URL, {
-          method: "POST",
-          mode: "cors",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
-        });
-
-        const data = await res.json().catch(() => ({}));
-        if (res.ok && data.ok) {
-          form.reset();
-          ok.style.display = "block";
-        } else {
-          err.style.display = "block";
-        }
-      } catch (e2) {
-        err.style.display = "block";
-      } finally {
-        btn.disabled = false;
-      }
-    });
-  </script>
+    // We can’t reliably read the response from Apps Script in an iframe,
+    // so we show success after a short delay.
+    setTimeout(() => {
+      form.reset();
+      ok.style.display = "block";
+      btn.disabled = false;
+    }, 900);
+  });
+</script>
 </body>
 </html>
 
