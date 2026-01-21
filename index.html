@@ -169,6 +169,55 @@
       color: rgba(97,52,19,.62);
       font-size:12px;
     }
+    .pdfActions{
+  display:flex;
+  gap:10px;
+  margin:12px 0 0;
+  flex-wrap: wrap;
+}
+
+.btnLink{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  text-decoration:none;
+  border-radius:16px;
+  padding:12px 14px;
+  font-weight:700;
+  font-size:14px;
+  border:1px solid rgba(97,52,19,.18);
+  background: rgba(255,255,255,.7);
+  color: rgba(97,52,19,.9);
+  width:100%;
+}
+
+.btnLinkPrimary{
+  border:0;
+  color:#fff;
+  background: linear-gradient(180deg, var(--deep), #4c260e);
+  box-shadow: 0 14px 28px rgba(97,52,19,.22);
+}
+
+.previewImg{
+  width:100%;
+  height:auto;
+  display:block;
+  border:1px solid rgba(97,52,19,.16);
+  border-radius:16px;
+  overflow:hidden;
+  background:#fff;
+}
+
+/* Make PDF embed behave better where supported */
+.embed{
+  width:100%;
+  height:min(74vh, 760px);
+  border:1px solid rgba(97,52,19,.16);
+  border-radius:16px;
+  overflow:hidden;
+  background:#fff;
+}
   </style>
 </head>
 
@@ -192,7 +241,31 @@
           <div class="pill">Gold theme</div>
         </div>
         <div class="content">
-          <iframe class="embed" src="invitation.pdf#view=FitH" title="Wedding Invitation PDF"></iframe>
+          <!-- iPhone-friendly preview image (recommended) -->
+<!-- Create an image of page 1 named: invitation-page1.jpg and place it next to index.html -->
+<img class="previewImg" src="invitation-page1.jpg" alt="Wedding invitation preview">
+
+<div class="pdfActions">
+  <!-- Opens PDF in a new tab (best on iPhone) -->
+  <a class="btnLink btnLinkPrimary"
+     href="invitation.pdf"
+     target="_blank"
+     rel="noopener noreferrer">
+    Open Invitation PDF
+  </a>
+
+  <!-- Forces download on most browsers (iPhone may still open, but that’s okay) -->
+  <a class="btnLink"
+     href="invitation.pdf"
+     download="Yuhananthan-Pugalini-Invitation.pdf">
+    Download PDF
+  </a>
+</div>
+
+<div class="hint">
+  Tip (iPhone): use “Open Invitation PDF” to view all pages properly.
+</div>
+
           <div class="hint">If your phone blocks PDF preview, you can still download/view the PDF directly.</div>
 
           <div class="kv">
