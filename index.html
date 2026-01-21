@@ -111,62 +111,12 @@
     }
     .hint{ margin:10px 0 0; color: rgba(97,52,19,.68); font-size: 12.5px; }
 
-    .kv{
-      display:grid;
-      grid-template-columns: 120px 1fr;
-      gap:8px 12px;
-      margin-top:14px;
-      padding:12px;
-      border-radius:16px;
-      border:1px solid rgba(97,52,19,.12);
-      background: rgba(255,255,255,.55);
-    }
-    .k{ color: rgba(97,52,19,.65); font-size:13px; }
-    .v{ font-weight:600; font-size:13px; }
-
-    form{ display:grid; gap:12px; }
-    label{ font-size:13px; font-weight:600; color: rgba(97,52,19,.86); }
-    input, select{
+    .formEmbed{
       width:100%;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(97,52,19,.18);
-      background: rgba(255,255,255,.7);
-      font-size:14px;
-      outline:none;
-    }
-    input:focus, select:focus{ border-color: rgba(97,52,19,.42); }
-    .row{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-    @media (max-width:520px){ .row{ grid-template-columns:1fr; } }
-
-    .btn{
-      cursor:pointer;
-      border:0;
-      border-radius:16px;
-      padding:12px 14px;
-      font-weight:700;
-      font-size:14px;
-      color: #fff;
-      background: linear-gradient(180deg, var(--deep), #4c260e);
-      box-shadow: 0 14px 28px rgba(97,52,19,.22);
-    }
-    .btn:disabled{ opacity:.65; cursor:not-allowed; }
-
-    .msg{
-      display:none;
-      padding:12px 12px;
-      border-radius:16px;
-      border:1px solid rgba(97,52,19,.14);
+      height:720px;
+      border:none;
+      border-radius:18px;
       background: rgba(255,255,255,.55);
-      font-size:13px;
-      color: rgba(97,52,19,.86);
-    }
-
-    footer{
-      text-align:center;
-      margin-top:18px;
-      color: rgba(97,52,19,.62);
-      font-size:12px;
     }
   </style>
 </head>
@@ -191,106 +141,43 @@
           <div class="pill">Gold theme</div>
         </div>
         <div class="content">
+          <!-- Put your PDF in same folder and name it invitation.pdf -->
           <iframe class="embed" src="invitation.pdf#view=FitH" title="Wedding Invitation PDF"></iframe>
           <div class="hint">If your phone blocks PDF preview, you can still download/view the PDF directly.</div>
 
-          <div class="kv">
-            <div class="k">Date</div><div class="v">Saturday, 20th June 2026</div>
-            <div class="k">Venue</div><div class="v">Oshwal Centre, Coopers Lane Road, Northaw, Herts, EN6 4DG</div>
+          <div class="hint" style="margin-top:12px;">
+            <b>Date:</b> Saturday, 20th June 2026<br/>
+            <b>Venue:</b> Oshwal Centre, Coopers Lane Road, Northaw, Herts, EN6 4DG
           </div>
         </div>
       </section>
 
-      <!-- RSVP -->
+      <!-- RSVP (Microsoft Forms embedded — saves to Excel automatically) -->
       <aside class="card">
         <div class="cardHead">
           <h2>RSVP</h2>
-          <div class="pill">Google Sheet</div>
+          <div class="pill">Microsoft Excel</div>
         </div>
         <div class="content">
-          <form id="rsvpForm">
-            <div>
-              <label for="guestName">Guest name</label>
-              <input id="guestName" name="guestName" required placeholder="Full name" />
-            </div>
+          <iframe
+            class="formEmbed"
+            src="https://forms.office.com/r/0jFJ0S6H2E?embed=true"
+            allowfullscreen
+            loading="lazy"
+            title="Wedding RSVP Form">
+          </iframe>
 
-            <div class="row">
-              <div>
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" required placeholder="name@example.com" />
-              </div>
-              <div>
-                <label for="phone">Phone number</label>
-                <input id="phone" name="phone" type="tel" required placeholder="+44…" />
-              </div>
-            </div>
-
-            <div>
-              <label for="attendingCount">Number of family members attending</label>
-              <select id="attendingCount" name="attendingCount" required>
-                <option value="" selected disabled>Select number</option>
-                <option>1</option><option>2</option><option>3</option><option>4</option>
-                <option>5</option><option>6</option><option>7</option><option>8</option>
-                <option>9</option><option>10</option>
-              </select>
-            </div>
-
-            <button class="btn" id="submitBtn" type="submit">Submit RSVP</button>
-            <div id="okMsg" class="msg">✅ Thank you! Your RSVP has been saved.</div>
-            <div id="errMsg" class="msg">❌ Sorry — something went wrong. Please try again.</div>
-
-            <div class="hint">Your details are only used for the wedding RSVP.</div>
-          </form>
+          <div class="hint">
+            Your response is saved securely and used only for wedding attendance planning.
+          </div>
         </div>
       </aside>
     </div>
 
-    <footer>© Yuhananthan &amp; Pugalini</footer>
+    <footer class="hint" style="text-align:center; margin-top:18px;">
+      © Yuhananthan &amp; Pugalini
+    </footer>
   </div>
-
-  <script>
-    // ✅ Paste your Google Apps Script Web App URL here:
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/library/d/1YOfIxsI1FEExILGamXATMYLf7GuIKEpohcT_AQuygb3yqHsy8db9Y9bH/1";
-
-    const form = document.getElementById("rsvpForm");
-    const btn = document.getElementById("submitBtn");
-    const ok = document.getElementById("okMsg");
-    const err = document.getElementById("errMsg");
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      ok.style.display = "none";
-      err.style.display = "none";
-      btn.disabled = true;
-
-      const payload = {
-        guestName: document.getElementById("guestName").value.trim(),
-        email: document.getElementById("email").value.trim(),
-        phone: document.getElementById("phone").value.trim(),
-        attendingCount: document.getElementById("attendingCount").value
-      };
-
-      try {
-        const res = await fetch(GOOGLE_SCRIPT_URL, {
-          method: "POST",
-          mode: "cors",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
-        });
-
-        const data = await res.json().catch(() => ({}));
-        if (res.ok && data.ok) {
-          form.reset();
-          ok.style.display = "block";
-        } else {
-          err.style.display = "block";
-        }
-      } catch (e2) {
-        err.style.display = "block";
-      } finally {
-        btn.disabled = false;
-      }
-    });
-  </script>
 </body>
 </html>
+
