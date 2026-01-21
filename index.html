@@ -111,12 +111,63 @@
     }
     .hint{ margin:10px 0 0; color: rgba(97,52,19,.68); font-size: 12.5px; }
 
-    .formEmbed{
-      width:100%;
-      height:720px;
-      border:none;
-      border-radius:18px;
+    .kv{
+      display:grid;
+      grid-template-columns: 120px 1fr;
+      gap:8px 12px;
+      margin-top:14px;
+      padding:12px;
+      border-radius:16px;
+      border:1px solid rgba(97,52,19,.12);
       background: rgba(255,255,255,.55);
+    }
+    .k{ color: rgba(97,52,19,.65); font-size:13px; }
+    .v{ font-weight:600; font-size:13px; }
+
+    /* RSVP card content */
+    .rsvpBox{
+      border:1px solid rgba(97,52,19,.12);
+      background: rgba(255,255,255,.55);
+      border-radius:18px;
+      padding:16px;
+    }
+    .rsvpTitle{
+      margin:0 0 6px;
+      font-size:15px;
+      font-weight:700;
+      color: rgba(97,52,19,.9);
+    }
+    .rsvpText{
+      margin:0 0 14px;
+      color: rgba(97,52,19,.72);
+      font-size:13px;
+      line-height: 1.5;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      width:100%;
+      text-decoration:none;
+      cursor:pointer;
+      border:0;
+      border-radius:16px;
+      padding:12px 14px;
+      font-weight:800;
+      font-size:14px;
+      color:#fff;
+      background: linear-gradient(180deg, var(--deep), #4c260e);
+      box-shadow: 0 14px 28px rgba(97,52,19,.22);
+    }
+    .btnSmall{
+      margin-top:10px;
+      width:100%;
+      background: rgba(255,255,255,.7);
+      color: rgba(97,52,19,.9);
+      border:1px solid rgba(97,52,19,.18);
+      box-shadow: none;
+      font-weight:700;
     }
   </style>
 </head>
@@ -141,34 +192,47 @@
           <div class="pill">Gold theme</div>
         </div>
         <div class="content">
-          <!-- Put your PDF in same folder and name it invitation.pdf -->
           <iframe class="embed" src="invitation.pdf#view=FitH" title="Wedding Invitation PDF"></iframe>
           <div class="hint">If your phone blocks PDF preview, you can still download/view the PDF directly.</div>
 
-          <div class="hint" style="margin-top:12px;">
-            <b>Date:</b> Saturday, 20th June 2026<br/>
-            <b>Venue:</b> Oshwal Centre, Coopers Lane Road, Northaw, Herts, EN6 4DG
+          <div class="kv">
+            <div class="k">Date</div><div class="v">Saturday, 20th June 2026</div>
+            <div class="k">Venue</div><div class="v">Oshwal Centre, Coopers Lane Road, Northaw, Herts, EN6 4DG</div>
           </div>
         </div>
       </section>
 
-      <!-- RSVP (Microsoft Forms embedded — saves to Excel automatically) -->
+      <!-- RSVP (Button opens Microsoft Form in new tab) -->
       <aside class="card">
         <div class="cardHead">
           <h2>RSVP</h2>
           <div class="pill">Microsoft Excel</div>
         </div>
         <div class="content">
-          <iframe
-            class="formEmbed"
-            src="https://forms.office.com/r/0jFJ0S6H2E?embed=true"
-            allowfullscreen
-            loading="lazy"
-            title="Wedding RSVP Form">
-          </iframe>
+          <div class="rsvpBox">
+            <p class="rsvpTitle">Confirm your attendance</p>
+            <p class="rsvpText">
+              Please click the button below to open the RSVP form. Your response is saved securely and will be used only
+              for wedding attendance planning.
+            </p>
 
-          <div class="hint">
-            Your response is saved securely and used only for wedding attendance planning.
+            <a class="btn"
+               href="https://forms.office.com/r/0jFJ0S6H2E"
+               target="_blank"
+               rel="noopener noreferrer">
+              Open RSVP Form
+            </a>
+
+            <a class="btn btnSmall"
+               href="https://forms.office.com/r/0jFJ0S6H2E"
+               target="_blank"
+               rel="noopener noreferrer">
+              If the button doesn’t work, click here
+            </a>
+
+            <div class="hint" style="margin-top:12px;">
+              Tip: After submitting, you can close the form tab and return here.
+            </div>
           </div>
         </div>
       </aside>
@@ -180,4 +244,3 @@
   </div>
 </body>
 </html>
-
