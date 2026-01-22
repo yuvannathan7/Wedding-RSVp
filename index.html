@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -103,14 +101,6 @@
     }
     .content{ padding:16px; }
 
-    .embed{
-      width:100%;
-      height:min(74vh, 760px);
-      border:1px solid rgba(97,52,19,.16);
-      border-radius:16px;
-      overflow:hidden;
-      background:#fff;
-    }
     .hint{ margin:10px 0 0; color: rgba(97,52,19,.68); font-size: 12.5px; }
 
     .kv{
@@ -170,161 +160,154 @@
       color: rgba(97,52,19,.62);
       font-size:12px;
     }
+
+    /* PDF preview + buttons */
     .pdfActions{
-  display:flex;
-  gap:10px;
-  margin:12px 0 0;
-  flex-wrap: wrap;
-}
+      display:flex;
+      gap:10px;
+      margin:12px 0 0;
+      flex-wrap: wrap;
+    }
 
-.btnLink{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  text-decoration:none;
-  border-radius:16px;
-  padding:12px 14px;
-  font-weight:700;
-  font-size:14px;
-  border:1px solid rgba(97,52,19,.18);
-  background: rgba(255,255,255,.7);
-  color: rgba(97,52,19,.9);
-  width:100%;
-}
+    .btnLink{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      text-decoration:none;
+      border-radius:16px;
+      padding:12px 14px;
+      font-weight:700;
+      font-size:14px;
+      border:1px solid rgba(97,52,19,.18);
+      background: rgba(255,255,255,.7);
+      color: rgba(97,52,19,.9);
+      width:100%;
+    }
 
-.btnLinkPrimary{
-  border:0;
-  color:#fff;
-  background: linear-gradient(180deg, var(--deep), #4c260e);
-  box-shadow: 0 14px 28px rgba(97,52,19,.22);
-}
+    .btnLinkPrimary{
+      border:0;
+      color:#fff;
+      background: linear-gradient(180deg, var(--deep), #4c260e);
+      box-shadow: 0 14px 28px rgba(97,52,19,.22);
+    }
 
-.previewImg{
-  width:100%;
-  height:auto;
-  display:block;
-  border:1px solid rgba(97,52,19,.16);
-  border-radius:16px;
-  overflow:hidden;
-  background:#fff;
-}
+    .previewImg{
+      width:100%;
+      height:auto;
+      display:block;
+      border:1px solid rgba(97,52,19,.16);
+      border-radius:16px;
+      overflow:hidden;
+      background:#fff;
+    }
 
-/* Make PDF embed behave better where supported */
-.embed{
-  width:100%;
-  height:min(74vh, 760px);
-  border:1px solid rgba(97,52,19,.16);
-  border-radius:16px;
-  overflow:hidden;
-  background:#fff;
-}/* Countdown + location */
-.metaRow{
-  display:flex;
-  gap:12px;
-  flex-wrap: wrap;
-  margin-top:14px;
-}
+    /* Countdown + location */
+    .metaRow{
+      display:flex;
+      gap:12px;
+      flex-wrap: wrap;
+      margin-top:14px;
+    }
 
-.countdown{
-  flex: 1 1 320px;
-  border:1px solid rgba(97,52,19,.12);
-  background: rgba(255,255,255,.55);
-  border-radius:18px;
-  padding:14px;
-}
+    .countdown{
+      flex: 1 1 320px;
+      border:1px solid rgba(97,52,19,.12);
+      background: rgba(255,255,255,.55);
+      border-radius:18px;
+      padding:14px;
+    }
 
-.countdownTitle{
-  margin:0 0 10px;
-  font-size:14px;
-  font-weight:800;
-  color: rgba(97,52,19,.9);
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
+    .countdownTitle{
+      margin:0 0 10px;
+      font-size:14px;
+      font-weight:800;
+      color: rgba(97,52,19,.9);
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
 
-.countGrid{
-  display:grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap:10px;
-}
-@media (max-width:420px){ .countGrid{ grid-template-columns: repeat(2, 1fr); } }
+    .countGrid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:10px;
+    }
+    @media (max-width:420px){ .countGrid{ grid-template-columns: repeat(2, 1fr); } }
 
-.countBox{
-  border:1px solid rgba(97,52,19,.12);
-  border-radius:16px;
-  background: rgba(255,255,255,.7);
-  padding:10px 10px;
-  text-align:center;
-}
+    .countBox{
+      border:1px solid rgba(97,52,19,.12);
+      border-radius:16px;
+      background: rgba(255,255,255,.7);
+      padding:10px 10px;
+      text-align:center;
+    }
 
-.countNum{
-  font-size:22px;
-  font-weight:900;
-  line-height:1.1;
-}
-.countLbl{
-  margin-top:4px;
-  font-size:12px;
-  color: rgba(97,52,19,.68);
-  font-weight:700;
-}
+    .countNum{
+      font-size:22px;
+      font-weight:900;
+      line-height:1.1;
+    }
+    .countLbl{
+      margin-top:4px;
+      font-size:12px;
+      color: rgba(97,52,19,.68);
+      font-weight:700;
+    }
 
-.locationBox{
-  flex: 1 1 320px;
-  border:1px solid rgba(97,52,19,.12);
-  background: rgba(255,255,255,.55);
-  border-radius:18px;
-  padding:14px;
-}
+    .locationBox{
+      flex: 1 1 320px;
+      border:1px solid rgba(97,52,19,.12);
+      background: rgba(255,255,255,.55);
+      border-radius:18px;
+      padding:14px;
+    }
 
-.locTitle{
-  margin:0 0 8px;
-  font-size:14px;
-  font-weight:800;
-  color: rgba(97,52,19,.9);
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
+    .locTitle{
+      margin:0 0 8px;
+      font-size:14px;
+      font-weight:800;
+      color: rgba(97,52,19,.9);
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
 
-.locAddr{
-  margin:0 0 12px;
-  color: rgba(97,52,19,.72);
-  font-size:13px;
-  line-height:1.5;
-}
+    .locAddr{
+      margin:0 0 12px;
+      color: rgba(97,52,19,.72);
+      font-size:13px;
+      line-height:1.5;
+    }
 
-.mapBtns{
-  display:flex;
-  gap:10px;
-  flex-wrap: wrap;
-}
+    .mapBtns{
+      display:flex;
+      gap:10px;
+      flex-wrap: wrap;
+    }
 
-.mapBtn{
-  flex: 1 1 180px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  text-decoration:none;
-  border-radius:16px;
-  padding:12px 14px;
-  font-weight:800;
-  font-size:14px;
-  border:1px solid rgba(97,52,19,.18);
-  background: rgba(255,255,255,.7);
-  color: rgba(97,52,19,.9);
-}
+    .mapBtn{
+      flex: 1 1 180px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      text-decoration:none;
+      border-radius:16px;
+      padding:12px 14px;
+      font-weight:800;
+      font-size:14px;
+      border:1px solid rgba(97,52,19,.18);
+      background: rgba(255,255,255,.7);
+      color: rgba(97,52,19,.9);
+    }
 
-.mapBtnPrimary{
-  border:0;
-  color:#fff;
-  background: linear-gradient(180deg, var(--deep), #4c260e);
-  box-shadow: 0 14px 28px rgba(97,52,19,.22);
-}
-
+    .mapBtnPrimary{
+      border:0;
+      color:#fff;
+      background: linear-gradient(180deg, var(--deep), #4c260e);
+      box-shadow: 0 14px 28px rgba(97,52,19,.22);
+    }
   </style>
 </head>
 
@@ -334,6 +317,7 @@
       <div>
         <h1 class="title">Yuhananthan &amp; Pugalini</h1>
         <p class="subtitle">
+          Saturday, 20 June 2026 • Oshwal Centre, Northaw (EN6 4DG)
         </p>
       </div>
       <div class="pill">✨ RSVP Online</div>
@@ -346,241 +330,253 @@
           <h2>Invitation</h2>
           <div class="pill">Gold theme</div>
         </div>
+
         <div class="content">
-          <!-- iPhone-friendly preview image (recommended) -->
-<!-- Create an image of page 1 named: invitation-page1.jpg and place it next to index.html -->
-<img class="previewImg" src="invitation-page1.jpg" alt="Wedding invitation preview">
+          <!-- iPhone-friendly preview image -->
+          <img class="previewImg" src="invitation-page1.jpg" alt="Wedding invitation preview">
 
-<div class="pdfActions">
-  <!-- Opens PDF in a new tab (best on iPhone) -->
-  <a class="btnLink btnLinkPrimary"
-     href="invitation.pdf"
-     target="_blank"
-     rel="noopener noreferrer">
-    Open Invitation PDF
-  </a>
+          <div class="pdfActions">
+            <a class="btnLink btnLinkPrimary"
+               href="invitation.pdf"
+               target="_blank"
+               rel="noopener noreferrer">
+              Open Invitation PDF
+            </a>
 
-  <!-- Forces download on most browsers (iPhone may still open, but that’s okay) -->
-  <a class="btnLink"
-     href="invitation.pdf"
-     download="Yuhananthan-Pugalini-Invitation.pdf">
-    Download PDF
-  </a>
-</div>
+            <a class="btnLink"
+               href="invitation.pdf"
+               download="Yuhananthan-Pugalini-Invitation.pdf">
+              Download PDF
+            </a>
+          </div>
 
-<div class="hint">
-  Tip (iPhone): use “Open Invitation PDF” to view all pages properly.
-</div>
-
-          <div class="hint">If your phone blocks PDF preview, you can still download/view the PDF directly.</div>
+          <div class="hint">
+            Tip (iPhone): use “Open Invitation PDF” to view all pages properly.
+          </div>
 
           <div class="kv">
             <div class="k">Date</div><div class="v">Saturday, 20th June 2026</div>
             <div class="k">Venue</div><div class="v">Oshwal Centre, Coopers Lane Road, Northaw, Herts, EN6 4DG</div>
           </div>
-<div class="metaRow">
-  <!-- Countdown -->
-  <div class="countdown" aria-live="polite">
-    <p class="countdownTitle">
-      ⏳ Countdown to the Wedding
-    </p>
-    <div class="countGrid">
-      <div class="countBox">
-        <div class="countNum" id="cdDays">—</div>
-        <div class="countLbl">Days</div>
-      </div>
-      <div class="countBox">
-        <div class="countNum" id="cdHours">—</div>
-        <div class="countLbl">Hours</div>
-      </div>
-      <div class="countBox">
-        <div class="countNum" id="cdMins">—</div>
-        <div class="countLbl">Minutes</div>
-      </div>
-      <div class="countBox">
-        <div class="countNum" id="cdSecs">—</div>
-        <div class="countLbl">Seconds</div>
-      </div>
-    </div>
-    <div class="hint" style="margin-top:10px;">
-      Counting down to <b>20 June 2026</b> (UK time).
-    </div>
-  </div>
 
-  <!-- Location -->
-  <div class="locationBox">
-    <p class="locTitle">
-      📍 Location
-    </p>
-    <p class="locAddr">
-      <b>Oshwal Centre</b><br>
-      Coopers Lane Road, Northaw, Herts, EN6 4DG, UK
-    </p>
+          <div class="metaRow">
+            <!-- Countdown -->
+            <div class="countdown" aria-live="polite">
+              <p class="countdownTitle">⏳ Countdown to the Wedding</p>
+              <div class="countGrid">
+                <div class="countBox">
+                  <div class="countNum" id="cdDays">—</div>
+                  <div class="countLbl">Days</div>
+                </div>
+                <div class="countBox">
+                  <div class="countNum" id="cdHours">—</div>
+                  <div class="countLbl">Hours</div>
+                </div>
+                <div class="countBox">
+                  <div class="countNum" id="cdMins">—</div>
+                  <div class="countLbl">Minutes</div>
+                </div>
+                <div class="countBox">
+                  <div class="countNum" id="cdSecs">—</div>
+                  <div class="countLbl">Seconds</div>
+                </div>
+              </div>
+              <div class="hint" style="margin-top:10px;">
+                Counting down to <b>20 June 2026</b> (UK time).
+              </div>
+            </div>
 
-    <div class="mapBtns">
-      <!-- Google Maps -->
-      <a class="mapBtn mapBtnPrimary"
-         href="https://www.google.com/maps/search/?api=1&query=Oshwal%20Centre%2C%20Coopers%20Lane%20Road%2C%20Northaw%2C%20Herts%2C%20EN6%204DG%2C%20UK"
-         target="_blank" rel="noopener noreferrer">
-        Open in Google Maps
-      </a>
+            <!-- Location -->
+            <div class="locationBox">
+              <p class="locTitle">📍 Location</p>
+              <p class="locAddr">
+                <b>Oshwal Centre</b><br>
+                Coopers Lane Road, Northaw, Herts, EN6 4DG, UK
+              </p>
 
-      <!-- Apple Maps -->
-      <a class="mapBtn"
-         href="https://maps.apple.com/?q=Oshwal%20Centre&address=Coopers%20Lane%20Road%2C%20Northaw%2C%20Herts%2C%20EN6%204DG%2C%20United%20Kingdom"
-         target="_blank" rel="noopener noreferrer">
-        Open in Apple Maps
-      </a>
-    </div>
-  </div>
-</div>
+              <div class="mapBtns">
+                <a class="mapBtn mapBtnPrimary"
+                   href="https://www.google.com/maps/search/?api=1&query=Oshwal%20Centre%2C%20Coopers%20Lane%20Road%2C%20Northaw%2C%20Herts%2C%20EN6%204DG%2C%20UK"
+                   target="_blank" rel="noopener noreferrer">
+                  Open in Google Maps
+                </a>
+
+                <a class="mapBtn"
+                   href="https://maps.apple.com/?q=Oshwal%20Centre&address=Coopers%20Lane%20Road%2C%20Northaw%2C%20Herts%2C%20EN6%204DG%2C%20United%20Kingdom"
+                   target="_blank" rel="noopener noreferrer">
+                  Open in Apple Maps
+                </a>
+              </div>
+            </div>
+          </div>
 
         </div>
       </section>
 
       <!-- RSVP -->
- <!-- RSVP -->
-<aside class="card">
-  <div class="cardHead">
-    <h2>RSVP</h2>
-    <div class="pill">Google Sheet</div>
-  </div>
-
-  <div class="content">
-    <!-- Hidden iframe prevents page redirect -->
-    <iframe name="hidden_iframe" style="display:none;"></iframe>
-
-    <form id="rsvpForm"
-          action="https://script.google.com/macros/s/AKfycbxPLXfDsMJX-CqKJknHGB2bNC9Gm5KUvKPkusmAULZAGnHMYYS3enjzCpAqPbnJ_CVoWQ/exec"
-          method="POST"
-          target="hidden_iframe">
-
-      <div>
-        <label for="guestName">Guest name</label>
-        <input id="guestName" name="guestName" required placeholder="Full name" />
-      </div>
-
-      <div class="row">
-        <div>
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required placeholder="name@example.com" />
+      <aside class="card">
+        <div class="cardHead">
+          <h2>RSVP</h2>
+          <div class="pill">Google Sheet</div>
         </div>
-        <div>
-          <label for="phone">Phone number</label>
-          <input id="phone" name="phone" type="tel" required placeholder="+44…" />
+
+        <div class="content">
+          <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+          <form id="rsvpForm"
+                action="https://script.google.com/macros/s/AKfycbxPLXfDsMJX-CqKJknHGB2bNC9Gm5KUvKPkusmAULZAGnHMYYS3enjzCpAqPbnJ_CVoWQ/exec"
+                method="POST"
+                target="hidden_iframe">
+
+            <div>
+              <label for="guestName">Guest name</label>
+              <input id="guestName" name="guestName" required placeholder="Full name" />
+            </div>
+
+            <div class="row">
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required placeholder="name@example.com" />
+              </div>
+              <div>
+                <label for="phone">Phone number</label>
+                <input id="phone" name="phone" type="tel" required placeholder="+44…" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div>
+                <label for="adults">Adults attending</label>
+                <select id="adults" name="adults" required>
+                  <option value="" selected disabled>Select</option>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="children">Children attending</label>
+                <select id="children" name="children" required>
+                  <option value="" selected disabled>Select</option>
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Honeypot anti-spam -->
+            <input type="text" name="website" id="website" autocomplete="off" style="display:none">
+
+            <button class="btn" id="submitBtn" type="submit">Submit RSVP</button>
+
+            <div id="okMsg" class="msg">✅ Thank you! Your RSVP has been saved.</div>
+            <div id="errMsg" class="msg">❌ Sorry — something went wrong. Please try again.</div>
+
+            <div class="hint">Your details are only used for the wedding RSVP.</div>
+          </form>
         </div>
-      </div>
-
-     <div class="row">
-  <div>
-    <label for="adults">Adults attending</label>
-    <select id="adults" name="adults" required>
-      <option value="" selected disabled>Select</option>
-      <option>0</option><option>1</option><option>2</option><option>3</option>
-      <option>4</option><option>5</option><option>6</option><option>7</option>
-      <option>8</option><option>9</option><option>10</option>
-    </select>
-  </div>
-
-  <div>
-    <label for="children">Children attending</label>
-    <select id="children" name="children" required>
-      <option value="" selected disabled>Select</option>
-      <option>0</option><option>1</option><option>2</option><option>3</option>
-      <option>4</option><option>5</option><option>6</option><option>7</option>
-      <option>8</option><option>9</option><option>10</option>
-    </select>
-  </div>
-</div>
-
-
-      <!-- Honeypot anti-spam (hidden) -->
-      <input type="text" name="website" id="website" autocomplete="off" style="display:none">
-
-      <button class="btn" id="submitBtn" type="submit">Submit RSVP</button>
-
-      <div id="okMsg" class="msg">✅ Thank you! Your RSVP has been saved.</div>
-      <div id="errMsg" class="msg">❌ Sorry — something went wrong. Please try again.</div>
-
-      <div class="hint">Your details are only used for the wedding RSVP.</div>
-    </form>
-  </div>
-</aside>
-
+      </aside>
     </div>
 
     <footer>© Yuhananthan &amp; Pugalini</footer>
   </div>
 
- <script>
-  const form = document.getElementById("rsvpForm");
-  const btn = document.getElementById("submitBtn");
-  const ok = document.getElementById("okMsg");
-  const err = document.getElementById("errMsg");
-  const hp = document.getElementById("website");
+  <script>
+    const form = document.getElementById("rsvpForm");
+    const btn = document.getElementById("submitBtn");
+    const ok = document.getElementById("okMsg");
+    const err = document.getElementById("errMsg");
+    const hp = document.getElementById("website");
 
-  form.addEventListener("submit", () => {
-    ok.style.display = "none";
-    err.style.display = "none";
-    btn.disabled = true;
+    form.addEventListener("submit", () => {
+      ok.style.display = "none";
+      err.style.display = "none";
+      err.textContent = "❌ Sorry — something went wrong. Please try again.";
+      btn.disabled = true;
 
-    // If honeypot filled (bot), silently show success
-    if (hp && hp.value.trim() !== "") {
-      form.reset();
-      ok.style.display = "block";
-      btn.disabled = false;
-      return;
+      // If honeypot filled (bot), silently show success
+      if (hp && hp.value.trim() !== "") {
+        form.reset();
+        ok.style.display = "block";
+        btn.disabled = false;
+        return;
+      }
+
+      // Validate: prevent 0 + 0
+      const adults = parseInt(document.getElementById("adults").value, 10);
+      const children = parseInt(document.getElementById("children").value, 10);
+      if ((adults + children) < 1) {
+        err.textContent = "❌ Please select at least 1 person attending.";
+        err.style.display = "block";
+        btn.disabled = false;
+        return;
+      }
+
+      // With iframe POST we can't reliably read the response,
+      // so show success after a short delay.
+      setTimeout(() => {
+        form.reset();
+        ok.style.display = "block";
+        btn.disabled = false;
+      }, 900);
+    });
+  </script>
+
+  <script>
+    // Countdown target: 20 June 2026, 12:00 (UK summer time is typically +01:00 in June)
+    const WEDDING_TIME = new Date("2026-06-20T12:00:00+01:00").getTime();
+
+    const elDays = document.getElementById("cdDays");
+    const elHours = document.getElementById("cdHours");
+    const elMins = document.getElementById("cdMins");
+    const elSecs = document.getElementById("cdSecs");
+
+    function pad2(n){ return String(n).padStart(2, "0"); }
+
+    function tickCountdown(){
+      const now = Date.now();
+      let diff = WEDDING_TIME - now;
+
+      if (diff <= 0) {
+        elDays.textContent = "0";
+        elHours.textContent = "00";
+        elMins.textContent = "00";
+        elSecs.textContent = "00";
+        return;
+      }
+
+      const totalSeconds = Math.floor(diff / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const mins = Math.floor((totalSeconds % 3600) / 60);
+      const secs = totalSeconds % 60;
+
+      elDays.textContent = String(days);
+      elHours.textContent = pad2(hours);
+      elMins.textContent = pad2(mins);
+      elSecs.textContent = pad2(secs);
     }
 
-    // We can’t reliably read the response from Apps Script in an iframe,
-    // so we show success after a short delay.
-    setTimeout(() => {
-      form.reset();
-      ok.style.display = "block";
-      btn.disabled = false;
-    }, 900);
-  });
-</script>
-<script>
-  // Countdown target: 20 June 2026, 12:00 (UK summer time is typically +01:00 in June)
-  // If you prefer a different time (e.g., 10:00), change it here.
-  const WEDDING_TIME = new Date("2026-06-20T12:00:00+01:00").getTime();
-
-  const elDays = document.getElementById("cdDays");
-  const elHours = document.getElementById("cdHours");
-  const elMins = document.getElementById("cdMins");
-  const elSecs = document.getElementById("cdSecs");
-
-  function pad2(n){ return String(n).padStart(2, "0"); }
-
-  function tickCountdown(){
-    const now = Date.now();
-    let diff = WEDDING_TIME - now;
-
-    if (diff <= 0) {
-      elDays.textContent = "0";
-      elHours.textContent = "00";
-      elMins.textContent = "00";
-      elSecs.textContent = "00";
-      return;
-    }
-
-    const totalSeconds = Math.floor(diff / 1000);
-    const days = Math.floor(totalSeconds / 86400);
-    const hours = Math.floor((totalSeconds % 86400) / 3600);
-    const mins = Math.floor((totalSeconds % 3600) / 60);
-    const secs = totalSeconds % 60;
-
-    elDays.textContent = String(days);
-    elHours.textContent = pad2(hours);
-    elMins.textContent = pad2(mins);
-    elSecs.textContent = pad2(secs);
-  }
-
-  tickCountdown();
-  setInterval(tickCountdown, 1000);
-</script>
-
+    tickCountdown();
+    setInterval(tickCountdown, 1000);
+  </script>
 </body>
 </html>
-
